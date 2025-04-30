@@ -1,0 +1,33 @@
+function solicitarNumero() {
+    let numero;
+    while (true) {
+      const entrada = prompt("Ingresa un número entero para la serie de Fibonacci:");
+      numero = Number(entrada);
+      if (!isNaN(numero) && Number.isInteger(numero) && numero > 0) {
+        return numero;
+      } else {
+        alert("Error: Por favor, ingresa un número entero válido mayor a 0.");
+      }
+    }
+  }
+  
+  function generarFibonacci(n) {
+    const serie = [];
+    for (let i = 0; i < n; i++) {
+      if (i === 0) {
+        serie.push(0);
+      } else if (i === 1) {
+        serie.push(1);
+      } else {
+        serie.push(serie[i - 1] + serie[i - 2]);
+      }
+    }
+    return serie;
+  }
+  
+  const cantidad = solicitarNumero();
+  const serieFibonacci = generarFibonacci(cantidad);
+  
+  console.log("Serie de Fibonacci:", serieFibonacci.join(", "));
+  document.getElementById("resultado").textContent = `Resultado: ${serieFibonacci.join(", ")}`;
+  
